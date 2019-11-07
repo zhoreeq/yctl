@@ -9,18 +9,18 @@ Supports keepalive mode if instantiated with `keepalive=True`.
 
 ## Example
 ```python3
-    import asyncio
-    import yctl
+import asyncio
+import yctl
 
-    async def main():
-        ctl = yctl.Control(host="127.0.0.1", port=9001, keepalive=False)
-        res = await ctl.get_self()
+async def main():
+    ctl = yctl.Control(host="127.0.0.1", port=9001, keepalive=False)
+    res = await ctl.get_self()
 
-        for k, v in res["response"]["self"].items():
-            res = await ctl.dht_ping(v["box_pub_key"], v["coords"])
+    for k, v in res["response"]["self"].items():
+        res = await ctl.dht_ping(v["box_pub_key"], v["coords"])
 
-            for k, v in res["response"]["nodes"].items():
-                print(k, v)
+        for k, v in res["response"]["nodes"].items():
+            print(k, v)
 
-    asyncio.run(main())
+asyncio.run(main())
 ```

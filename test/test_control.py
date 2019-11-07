@@ -11,6 +11,4 @@ class TestControl(unittest.TestCase):
             res = await ctl.get_self()
             self.assertEqual(res["status"], "success")
 
-            await ctl.disconnect()
-
         asyncio.run(test())
