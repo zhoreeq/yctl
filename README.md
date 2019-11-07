@@ -1,5 +1,5 @@
 # yctl
-Send commands to [Yggdrasil admin socket](https://yggdrasil-network.github.io/admin.html)
+Control [Yggdrasil](https://yggdrasil-network.github.io/admin.html) node with Python.
 
 ## API
 Yggdrasil's control commands translated from camelCase to pythonic snake\_case 
