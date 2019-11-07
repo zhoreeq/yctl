@@ -1,9 +1,10 @@
 # yctl
-Control [Yggdrasil](https://yggdrasil-network.github.io/admin.html) node with Python.
+Control [Yggdrasil](https://yggdrasil-network.github.io/) node with Python.
 
 ## API
-Yggdrasil's control commands translated from camelCase to pythonic snake\_case 
-methods. For example, `getSelf` becomes `Control.get_self()`
+[Yggdrasil's control commands](https://yggdrasil-network.github.io/admin.html) 
+translated from camelCase to pythonic snake\_case methods. For example, 
+`getSelf` becomes `Control.get_self()`
 
 Supports keepalive mode if instantiated with `keepalive=True`.
 
