@@ -53,6 +53,9 @@ class Control:
     async def remove_peer(self, port: int) -> Dict:
         return await self._request("removePeer", {"port": port})
 
+    async def disconnect_peer(self, port: int) -> Dict:
+        return await self._request("disconnectPeer", {"port": port})
+
     async def get_switch_peers(self) -> Dict:
         return await self._request("getSwitchPeers")
 
