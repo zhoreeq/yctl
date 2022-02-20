@@ -47,18 +47,6 @@ class Control:
     async def get_peers(self) -> Dict:
         return await self._request("getPeers")
 
-    async def add_peer(self, uri: str) -> Dict:
-        return await self._request("addPeer", {"uri": uri})
-
-    async def remove_peer(self, port: int) -> Dict:
-        return await self._request("removePeer", {"port": port})
-
-    async def disconnect_peer(self, port: int) -> Dict:
-        return await self._request("disconnectPeer", {"port": port})
-
-    async def get_switch_peers(self) -> Dict:
-        return await self._request("getSwitchPeers")
-
     async def get_self(self) -> Dict:
         return await self._request("getSelf")
 
@@ -68,46 +56,21 @@ class Control:
     async def get_tun_tap(self) -> Dict:
         return await self._request("getTunTap")
 
-    async def get_allowed_encryption_public_keys(self) -> Dict:
-        return await self._request("getAllowedEncryptionPublicKeys")
-
-    async def add_allowed_encryption_public_key(self, box_pub_key: str) -> Dict:
-        return await self._request("addAllowedEncryptionPublicKey", {
-            "box_pub_key": box_pub_key})
-
-    async def remove_allowed_encryption_public_key(self, box_pub_key: str) -> Dict:
-        return await self._request("removeAllowedEncryptionPublicKey", {
-            "box_pub_key": box_pub_key})
-
     async def get_multicast_interfaces(self) -> Dict:
         return await self._request("getMulticastInterfaces")
 
-    async def get_routes(self) -> Dict:
-        return await self._request("getRoutes")
+    async def get_paths(self) -> Dict:
+        return await self._request("getPaths")
 
-    async def add_route(self, subnet: str, box_pub_key: str) -> Dict:
-        return await self._request("addRoute", 
-                {"subnet": subnet, "box_pub_key": box_pub_key})
+    async def get_node_info(self, key: str) -> Dict:
+        return await self._request("getNodeInfo", {"key": key})
 
-    async def remove_route(self, subnet: str, box_pub_key: str) -> Dict:
-        return await self._request("removeRoute", 
-                {"subnet": subnet, "box_pub_key": box_pub_key})
+    async def debug_remote_get_self(self, key: str) -> Dict:
+        return await self._request("debug_remoteGetSelf", {"key": key})
 
-    async def get_source_subnets(self) -> Dict:
-        return await self._request("getSourceSubnets")
+    async def debug_remote_get_peers(self, key: str) -> Dict:
+        return await self._request("debug_remoteGetPeers", {"key": key})
 
-    async def add_source_subnet(self, subnet: str) -> Dict:
-        return await self._request("addSourceSubnet", {"subnet": subnet})
-
-    async def remove_source_subnet(self, subnet: str) -> Dict:
-        return await self._request("removeSourceSubnet", {"subnet": subnet})
-
-    async def dht_ping(self, box_pub_key: str, coords: str, target: str = "") -> Dict:
-        args = {"box_pub_key": box_pub_key, "coords": coords}
-        if target: args["target"] = target
-        return await self._request("dhtPing", args)
-
-    async def get_node_info(self, box_pub_key: str, coords: str) -> Dict:
-        return await self._request("getNodeInfo", 
-                {"box_pub_key": box_pub_key, "coords": coords})
+    async def debug_remote_get_dht(self, key: str) -> Dict:
+        return await self._request("debug_remoteGetDHT", {"key": key})
 
