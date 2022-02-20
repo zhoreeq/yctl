@@ -1,6 +1,10 @@
 # yctl
 Control [Yggdrasil](https://yggdrasil-network.github.io/) node with Python.
 
+```
+pip install yctl
+```
+
 ## API
 [Yggdrasil's control commands](https://yggdrasil-network.github.io/admin.html) 
 translated from camelCase to pythonic snake\_case methods. For example, 
